@@ -1,37 +1,32 @@
 import {
   Button,
-  Divider,
-  IconButton,
-  Toolbar,
+  Container,
+  Grid,
   Stack,
-  Typography,
-  Badge,
+  ThemeProvider,
+  createTheme,
 } from "@mui/material";
 import "./App.css";
 import SendIcon from "@mui/icons-material/Send";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
-import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useState } from "react";
-import { makeStyles } from "@mui/styles";
-
-const useStyles = makeStyles((theme) => ({
-  title: {
-    flexGrow: 1,
-  },
-  tagline: {
-    fontSize: 20,
-    textTransform: "uppercase",
-    justifyContent: "center",
-    fontFamily: "Montserrat",
-  },
-}));
+import Header from "./components/Header";
+import FeaturedPosts from "./components/FeaturedPosts";
+import { featuredPosts, sidebar } from "./data/data";
+import PostCard from "./components/PostCard";
+import Main from "./components/Main";
+import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 
 function App() {
   const [showBtn] = useState(false);
-  const classes = useStyles();
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
   return (
     <>
       {showBtn ? (
@@ -110,31 +105,27 @@ function App() {
           </Stack>
         </>
       ) : (
-        <>
-          <Toolbar>
-            <IconButton color="inherit">
-              <MenuIcon />
-            </IconButton>
-            {/* <Typography sx={{flexGrow:1}} variant="h6"> */}
-            <Typography className={classes.title} variant="h6">
-              Blogging Website
-            </Typography>
+        <ThemeProvider theme={darkTheme}>
+          <Container>
+            <Header />
+            <FeaturedPosts />
+            <br />
+            <Grid container spacing={4} sx={{ marginBottom: 6 }}>
+              {featuredPosts.map((post) => (
+                <PostCard post={post} key={post.title} />
+              ))}
+            </Grid>
 
-            <IconButton color="inherit">
-              <Badge badgeContent={2} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton color="inherit">
-              <AccountCircleIcon />
-            </IconButton>
-          </Toolbar>
-          <Divider />
-
-          <Toolbar className={classes.tagline}>
-            Express your emotions through words
-          </Toolbar>
-        </>
+            <Grid container spacing={5}>
+              <Main title="From the Firehouse" />
+              <Sidebar sidebarDetails={sidebar} />
+            </Grid>
+          </Container>
+          <Footer
+            title="Footer"
+            description="Some random Description is added for the time"
+          />
+        </ThemeProvider>
       )}
     </>
   );
