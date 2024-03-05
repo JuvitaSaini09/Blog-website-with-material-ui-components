@@ -18,6 +18,7 @@ import PostCard from "./components/PostCard";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import SideDrawer from "./components/SideDrawer";
 
 function App() {
   const [showBtn] = useState(false);
@@ -107,6 +108,9 @@ function App() {
       ) : (
         <ThemeProvider theme={darkTheme}>
           <Container>
+            <SideDrawer>
+              <Header />
+            </SideDrawer>
             <Header />
             <FeaturedPosts />
             <br />
