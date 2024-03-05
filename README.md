@@ -1,8 +1,18 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+###### Material ui Component library practice : https://mui.com/material-ui/
+- Basic frontend page to practice material ui component library,icon and styled components
+- include 
+   -  *Navbar* is *Appbar in  - mui comp*
+   -  *Side Drawer  - mui comp*
+   -  *Hero Section*
+   -  *Cards  - mui comp*
+   -  *Buttons  - mui comp*
+   -  *Footer*
+   -  *Links  - mui comp*
+   -  *Container  - mui comp*
+   -  *Typography - mui comp*
+     
+- I have made this beacuse of Piyush : https://www.youtube.com/watch?v=PF6z8Rs0bhY
+- His - Github src : https://github.com/piyush-eon/material-ui-tutorial
+  
